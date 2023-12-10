@@ -1,14 +1,8 @@
 import './style.css'
 
-
-const URL = `https://southparkquotes.onrender.com/`;
-
 async function getData() {
-    let result = await fetch (
-        URL
-    );
-    let data = await result.json ();
-    console.log(data);
+  let result= await fetch ("https://southparkquotes.onrender.com/v1/quotes/search/cartman");
+let data = await result.json();
+console.log(data);
 }
-
-getData(URL);
+getData();
