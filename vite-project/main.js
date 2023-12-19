@@ -1,4 +1,4 @@
-
+import "../css/style.css";
 
 const URL = 'https://southparkquotes.onrender.com/';
 
