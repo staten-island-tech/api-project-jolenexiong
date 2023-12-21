@@ -1,10 +1,28 @@
+body {
+    background-image: url("south-park.jpeg");
+    padding-top: 2%;
+}
 
 
+h1{
+ background-color: aliceblue;
+ padding: 6%
 
-
+}
 
 #guess {
     font-size: 50px;
+    border-radius: 25px;
+    background-color: aliceblue;
+    padding: 1%;
+    
+}
+
+#whosaid {
+    font-size: 40px;
+    border-radius: 25px;
+    margin: 1%;
+  
 }
 
 .pic {
@@ -12,3 +30,10 @@
     width:2px;
 }
 
+.submitbtn {
+    font-size: 35px;
+    border-radius: 25px;
+    padding: 15px;
+    margin: 1%;
+    background-color:beige;
+}
