@@ -9,18 +9,30 @@ import "./css/style.css";
 // // let data = await result.json();
 // // console.log(data);
 // }
-const URL = 'https://southparkquotes.onrender.com/v1/quotes';
+const URL1 = 'https://southparkquotes.onrender.com/v1/quotes';
 
-async function addQuote(URL) {
-  const res = await fetch(URL);
+async function addQuote(URL1) {
+  const res = await fetch(URL1);
   console.log(res);
   const data = await res.json();
   console.log(data);
   document.querySelector("h1").textContent = data.quote;
 }
 
+addQuote(URL1);
 
-addQuote(URL);
+
+// function check {
+//   guess: document.querySelector("#guess"),
+//   if (
+//      DOMSelectors.guess.value === data.quote 
+//   )
+  
+  
+// }
+
+
+
 
 
 
