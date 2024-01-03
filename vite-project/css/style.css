@@ -1,6 +1,7 @@
 body {
     background-image: url("south-park.jpeg");
     padding-top: 2%;
+    background-size: cover;
 }
 
 
@@ -15,6 +16,7 @@ h1{
     border-radius: 25px;
     background-color: aliceblue;
     padding: 1%;
+    text-align: center;
     
 }
 
@@ -36,4 +38,8 @@ h1{
     padding: 15px;
     margin: 1%;
     background-color:beige;
+}
+
+.check {
+    background-color: aliceblue;
 }
