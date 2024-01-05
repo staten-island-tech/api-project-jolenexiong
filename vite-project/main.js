@@ -12,10 +12,12 @@ import "./css/style.css";
 const URL1 = 'https://southparkquotes.onrender.com/v1/quotes';
 
 
+
 const DOMSelectors = {
   question: document.querySelector("#question"),
   submit: document.querySelector(".submitbtn"),
   refresh: document.querySelector("#refresh"),
+  app: document.querySelector(".app"),
 }
 
 async function addQuote(URL1) {
@@ -31,21 +33,25 @@ DOMSelectors.question.textContent = data[0].quote;}
 
 addQuote(URL1);
 
-// DOMSelectors.submit.addEventListener("click", function (event) {
-//   event.preventDefault();
-// const guess = document.getElementById('whosaid').value;
-// const answer = data[0].character;
-// const correct = document.querySelector('.check');
+DOMSelectors.submit.addEventListener("click", function (event) {
+  event.preventDefault();
 
-// if (guess()=== answer()) {
-//   correct.textContent = 'Yass you did it!!!! you are amazing and beautiful';
-// } else {
-//   correct.textContent = 'wow you really flopped...';
-// }
-// });
+const guess = document.getElementById('whosaid').value.tolowercase;
+const data= fetch(URL1);
+const answer = data[0].character.tolowercase;
+const check = document.querySelector('.check');
 
-// const refreshbtn = document.getElementById("#refresh");
+if (guess=== answer) {
+  check.textContent = 'you did it!!!! you are amazing and beautiful';
 
-// refreshbtn.addEventListener("click", function(event){
-//   addQuote(URL1);
-// })
+} else {
+  check.textContent = 'thats wrong...';
+}
+});
+
+
+const refreshbtn = document.getElementById("#refresh");
+
+refreshbtn.addEventListener("submit", function(){
+  addQuote(URL1);
+})
