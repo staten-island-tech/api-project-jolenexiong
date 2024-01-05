@@ -1,5 +1,5 @@
 body {
-    background-image: url("actual.PNG");
+    background-image: url("finalBG.jpg");
     padding-top: 2%;
     background-size: cover;
 }
@@ -48,7 +48,7 @@ h1 {
     font-size: 35px;
 }
 
-.refresh {
+#refresh {
     height: 40px;
     width: 100px;
     border-radius: 25px;

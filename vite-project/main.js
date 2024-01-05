@@ -15,6 +15,7 @@ const URL1 = 'https://southparkquotes.onrender.com/v1/quotes';
 const DOMSelectors = {
   question: document.querySelector("#question"),
   submit: document.querySelector(".submitbtn"),
+  refresh: document.querySelector("#refresh"),
 }
 
 async function addQuote(URL1) {
@@ -30,26 +31,21 @@ DOMSelectors.question.textContent = data[0].quote;}
 
 addQuote(URL1);
 
-DOMSelectors.submit.addEventListener('click', function (event) {
-  event.preventDefault();
-const guess = document.getElementById('whosaid').value;
-const answer = data[0].character;
-const correct = document.querySelector('.check');
+// DOMSelectors.submit.addEventListener("click", function (event) {
+//   event.preventDefault();
+// const guess = document.getElementById('whosaid').value;
+// const answer = data[0].character;
+// const correct = document.querySelector('.check');
 
-if (guess()=== answer()) {
-  correct.textContent = 'Yass you did it!!!! you are amazing and beautiful';
-} else {
-  correct.textContent = 'wow you really flopped...';
-}
-});
+// if (guess()=== answer()) {
+//   correct.textContent = 'Yass you did it!!!! you are amazing and beautiful';
+// } else {
+//   correct.textContent = 'wow you really flopped...';
+// }
+// });
 
+// const refreshbtn = document.getElementById("#refresh");
 
-
-
-
-
-
-
-
-
-
+// refreshbtn.addEventListener("click", function(event){
+//   addQuote(URL1);
+// })
