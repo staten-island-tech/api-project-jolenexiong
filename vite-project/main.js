@@ -18,6 +18,8 @@ const DOMSelectors = {
   submit: document.querySelector(".submitbtn"),
   refresh: document.querySelector("#refresh"),
   app: document.querySelector(".app"),
+  gaveup: document.querySelector("#gaveup"),
+  giveupbtn: document.querySelector(".giveupbtn"),
 }
 
 async function addQuote(URL1) {
@@ -31,27 +33,51 @@ DOMSelectors.question.textContent = data[0].quote;}
   }
 }
 
+async function addCharacter(URL1) {
+  try {
+    const res = await fetch(URL1);
+    const data = await res.json();
+    console.log(data);
+    DOMSelectors.gaveup.textContent = data[0].character;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+
 addQuote(URL1);
 
-DOMSelectors.submit.addEventListener("click", function (event) {
+DOMSelectors.submit.addEventListener("click", async function (event) {
   event.preventDefault();
 
-const guess = document.getElementById('whosaid').value.tolowercase;
-const data= fetch(URL1);
-const answer = data[0].character.tolowercase;
-const check = document.querySelector('.check');
 
-if (guess=== answer) {
-  check.textContent = 'you did it!!!! you are amazing and beautiful';
 
-} else {
-  check.textContent = 'thats wrong...';
+try {
+  const guess = document.getElementById('whosaid').value.toLowerCase();
+  const response = await fetch(URL1);
+  const data = await response.json();
+  const answer = data[0].character.toLowerCase();
+  const check = document.querySelector('.check');
+
+if (guess === answer) {
+  check.textContent = "you did it!!!! you are amazing and beautiful";
+} else if (guess!=answer){
+  check.textContent = "that's wrong...";
 }
+}catch(error){
+  console.log(error)
+}
+
+});
+
+DOMSelectors.giveupbtn.addEventListener("click", function() {
+  addCharacter(URL1); 
 });
 
 
-const refreshbtn = document.getElementById("#refresh");
 
-refreshbtn.addEventListener("submit", function(){
-  addQuote(URL1);
-})
+
+
+
+

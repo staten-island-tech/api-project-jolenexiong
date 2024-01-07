@@ -1,5 +1,5 @@
 body {
-    background-image: url("finalBG.jpg");
+    background-image: url("bg34.png");
     padding-top: 2%;
     background-size: cover;
 }
@@ -7,9 +7,10 @@ body {
 
 h1 {
     background-color: rgb(237, 252, 213);
-    padding: 4%;
-    font-size: 45px;
+    padding: 2%;
+    font-size: 50px;
     text-align: center;
+    margin-top: 10px;
 
 }
 
@@ -49,8 +50,24 @@ h1 {
 }
 
 #refresh {
-    height: 40px;
-    width: 100px;
+    height: 9%;
+    width: 20%;
     border-radius: 25px;
-    margin-left: 45%;
+    margin-left: 25%;
+    font-size: 35px;
+}
+
+.giveupbtn {
+    height: 9%;
+    width: 20%;
+    font-size: 35px;
+    border-radius: 25px;
+    margin-left: 19%;
+    background-color:rgb(255, 103, 134);
+}
+
+#gaveup {
+    background-color: rgb(117, 221, 160);
+    text-align: center;
+    font-size: 35px;
 }
