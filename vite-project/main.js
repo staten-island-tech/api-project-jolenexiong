@@ -20,7 +20,7 @@ const DOMSelectors = {
   app: document.querySelector(".app"),
   gaveup: document.querySelector("#gaveup"),
   giveupbtn: document.querySelector(".giveupbtn"),
- 
+
 }
 
 let currentQuote = null;
@@ -32,6 +32,7 @@ async function addQuote(URL1) {
     console.log(data);
     DOMSelectors.question.textContent = data[0].quote;
     currentQuote = data[0];
+    console.log(currentQuote);
   }
   catch (error) {
     console.log(error);
@@ -49,25 +50,25 @@ DOMSelectors.submit.addEventListener("click", async function (event) {
   try {
     const guess = document.getElementById('whosaid').value.toLowerCase();
     if (currentQuote) {
-    const answer = currentQuote.character.toLowerCase();
-    const check = document.querySelector('.check');
-    if (guess === answer) {
-      check.textContent = "you did it!!!! you are amazing and beautiful";
-    } else {
-      check.textContent = "that's wrong...";
+      const answer = currentQuote.character.toLowerCase();
+      const check = document.querySelector('.check');
+      if (guess === answer) {
+        check.textContent = "you did it!!!! you are amazing and beautiful";
+      } else {
+        check.textContent = "that's wrong...";
+      }
     }
-  } 
-} catch (error) {
-  console.error(error);
-}
+  } catch (error) {
+    console.error(error);
+  }
 });
 
 
 DOMSelectors.giveupbtn.addEventListener("click", async function (event) {
   event.preventDefault();
   try {
-    const res = await fetch(URL1);
-    const data = await res.json();
+    // const res = await fetch(URL1);
+    // const data = await res.json();
     DOMSelectors.gaveup.textContent = currentQuote.character;
   }
   catch (error) {
@@ -75,6 +76,7 @@ DOMSelectors.giveupbtn.addEventListener("click", async function (event) {
   }
 }
 );
+
 
 
 
