@@ -1,9 +1,10 @@
-body {
-    background-image: url("../public/bg34.png");
-    padding-top: 2%;
-    background-size: cover;
+.background {
+    padding-left: 32%;
 }
 
+#app {
+    background-color:rgb(243, 190, 190);
+}
 
 h1 {
     background-color: rgb(214, 178, 228);
