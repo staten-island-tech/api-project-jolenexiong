@@ -20,29 +20,24 @@ const DOMSelectors = {
   app: document.querySelector(".app"),
   gaveup: document.querySelector("#gaveup"),
   giveupbtn: document.querySelector(".giveupbtn"),
+ 
 }
+
+let currentQuote = null;
 
 async function addQuote(URL1) {
-  try{
-  const res = await fetch(URL1);
-  const data = await res.json();
-  console.log(data);
-DOMSelectors.question.textContent = data[0].quote;}
-  catch(error){
-    console.log(error)
-  }
-}
-
-async function addCharacter(URL1) {
   try {
     const res = await fetch(URL1);
     const data = await res.json();
     console.log(data);
-    DOMSelectors.gaveup.textContent = data[0].character;
-  } catch (error) {
+    DOMSelectors.question.textContent = data[0].quote;
+    currentQuote = data[0];
+  }
+  catch (error) {
     console.log(error);
   }
 }
+
 
 
 
@@ -51,31 +46,35 @@ addQuote(URL1);
 DOMSelectors.submit.addEventListener("click", async function (event) {
   event.preventDefault();
 
-
-
-try {
-  const guess = document.getElementById('whosaid').value.toLowerCase();
-  const response = await fetch(URL1);
-  const data = await response.json();
-  const answer = data[0].character.toLowerCase();
-  const check = document.querySelector('.check');
-
-if (guess === answer) {
-  check.textContent = "you did it!!!! you are amazing and beautiful";
-} else if (guess!=answer){
-  check.textContent = "that's wrong...";
+  try {
+    const guess = document.getElementById('whosaid').value.toLowerCase();
+    if (currentQuote) {
+    const answer = currentQuote.character.toLowerCase();
+    const check = document.querySelector('.check');
+    if (guess === answer) {
+      check.textContent = "you did it!!!! you are amazing and beautiful";
+    } else {
+      check.textContent = "that's wrong...";
+    }
+  } 
+} catch (error) {
+  console.error(error);
 }
-}catch(error){
-  console.log(error)
-}
-
-});
-
-DOMSelectors.giveupbtn.addEventListener("click", function() {
-  addCharacter(URL1); 
 });
 
 
+DOMSelectors.giveupbtn.addEventListener("click", async function (event) {
+  event.preventDefault();
+  try {
+    const res = await fetch(URL1);
+    const data = await res.json();
+    DOMSelectors.gaveup.textContent = currentQuote.character;
+  }
+  catch (error) {
+    console.log(error);
+  }
+}
+);
 
 
 
